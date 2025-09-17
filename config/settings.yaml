@@ -1,0 +1,44 @@
+# config/settings.yaml
+
+project:
+  name: CV Creation using LLMs
+  version: 1.0
+  author: Your Name
+  description: >
+    Intelligent resume extraction, tailoring, and generation using open-source LLMs.
+
+paths:
+  resume_input_dir: data/resumes/
+  jd_input_dir: data/job_descriptions/
+  template_dir: data/templates/
+  output_dir: output/resumes/
+  log_dir: logs/
+
+llm:
+  provider: ollama
+  model_name: gemma:3b
+  temperature: 0.7
+  max_tokens: 2048
+  top_p: 0.9
+  frequency_penalty: 0.0
+  presence_penalty: 0.0
+
+resume_generation:
+  format: docx
+  template_file: modern_template.docx
+  include_summary: true
+  include_skills: true
+  include_achievements: true
+
+ats_analysis:
+  keyword_threshold: 0.75
+  required_sections:
+    - Contact Information
+    - Summary
+    - Experience
+    - Education
+    - Skills
+
+logging:
+  level: INFO
+  file: logs/app.log
